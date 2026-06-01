@@ -1,0 +1,17 @@
+name: Docker Build
+
+on:
+  push:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v5
+
+      - name: Build Docker Image
+        run: docker build -t myapp .
