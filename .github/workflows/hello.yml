@@ -1,12 +1,12 @@
-name: Hello World
+name: Push Trigger Test
 
 on:
-  workflow_dispatch:
+  push:
 
 jobs:
-  hello:
+  test:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Say Hello
-        run: echo "Hello from GitHub Actions!"
+      - name: Print Message
+        run: echo "Someone pushed code!"
