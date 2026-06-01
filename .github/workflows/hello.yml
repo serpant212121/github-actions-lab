@@ -1,18 +1,26 @@
-name: Python CI
+name: Mini Pipeline
 
 on:
   push:
 
 jobs:
+
   test:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v5
+      - run: echo "Running tests"
 
-      - uses: actions/setup-python@v6
-        with:
-          python-version: "3.12"
+  build:
+    needs: test
+    runs-on: ubuntu-latest
 
-      - name: Run Program
-        run: python fakeapp.py
+    steps:
+      - run: echo "Building application"
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo "Deploying application"
