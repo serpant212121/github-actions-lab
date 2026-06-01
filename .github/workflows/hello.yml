@@ -1,4 +1,4 @@
-name: Push Trigger Test
+name: Checkout Test
 
 on:
   push:
@@ -8,5 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print Message
-        run: echo "Someone pushed code!"
+      - uses: actions/checkout@v5
+
+      - name: Show Files
+        run: ls -la
